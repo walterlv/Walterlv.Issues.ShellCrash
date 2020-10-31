@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 using Microsoft.WindowsAPICodePack.Shell;
 
 using Walterlv.Issues.ShellCrash.Utils;
@@ -18,10 +20,10 @@ namespace Walterlv.Issues.ShellCrash
             ContentRendered += OnContentRendered;
         }
 
-        private void OnContentRendered(object sender, EventArgs e)
+        private async void OnContentRendered(object sender, EventArgs e)
         {
-            ShowInjectedDlls();
             ShowDesktopIcons();
+            ShowInjectedDlls();
         }
 
         private void ShowInjectedDlls()
